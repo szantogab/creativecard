@@ -1,9 +1,9 @@
 import * as React from 'react';
 import './App.css';
-import { Button, FormGroup, Grid, Row } from 'react-bootstrap';
+import { Button, FormGroup, Row, Container } from 'reactstrap';
 import FilterRow, { FilterRowState } from './FilterRow';
 
-class SearchForm extends React.Component<{ onSubmit: (rows: FilterRowState[]) => void, fields: { id: string, name: string }[] }, {rows: FilterRowState[] }> {
+class SearchForm extends React.Component<{ onSubmit: (rows: FilterRowState[]) => void, fields: { id: string, name: string }[] }, { rows: FilterRowState[] }> {
     constructor(props: { onSubmit: (rows: FilterRowState[]) => void, fields: { id: string; name: string }[] }, context: FilterRowState[]) {
         super(props, context);
         this.state = {
@@ -15,7 +15,7 @@ class SearchForm extends React.Component<{ onSubmit: (rows: FilterRowState[]) =>
 
     render() {
         return (
-            <Grid fluid={true}>
+            <Container fluid={true}>
                 <Row>
                     <FormGroup>
                         {
@@ -25,11 +25,11 @@ class SearchForm extends React.Component<{ onSubmit: (rows: FilterRowState[]) =>
                 </Row>
 
                 <Row>
-                    <Button onClick={this.onNewClick}>Új felvétele</Button>
-                    <Button onClick={this.reset}>Alaphelyzet</Button>
-                    <Button onClick={() => this.props.onSubmit(this.state.rows)}>Mehet</Button>
+                    <Button color="info" onClick={this.onNewClick}>Új felvétele</Button>
+                    <Button color="info" onClick={this.reset}>Alaphelyzet</Button>
+                    <Button color="info" onClick={() => this.props.onSubmit(this.state.rows)}>Mehet</Button>
                 </Row>
-            </Grid>
+            </Container>
         );
     }
 

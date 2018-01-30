@@ -3,11 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/graphql": "^0.12.3",
+    "@types/rx": "^4.1.1",
+    "apollo-client": "^2.2.0",
+    "apollo-client-preset": "^1.0.6",
+    "bootstrap": "^4.0.0",
+    "graphql": "^0.12.3",
+    "graphql-tag": "^2.6.1",
+    "jquery": "^3.3.1",
+    "loaders.css": "^0.1.2",
+    "popper.js": "^1.12.9",
+    "prop-types": "latest",
     "react": "^16.2.0",
-    "react-bootstrap": "^0.32.0",
+    "react-apollo": "^2.0.4",
     "react-dom": "^16.2.0",
+    "react-fontawesome": "^1.6.1",
+    "react-loaders": "^3.0.1",
+    "react-notification-system": "^0.2.16",
     "react-router": "^4.2.0",
-    "react-scripts-ts": "2.12.0"
+    "react-router-dom": "^4.2.2",
+    "react-scripts-ts": "2.12.0",
+    "reactstrap": "^5.0.0-alpha.4",
+    "recompose": "^0.26.0",
+    "redurx": "^0.4.1",
+    "rx": "^4.1.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -18,8 +37,14 @@
   "devDependencies": {
     "@types/jest": "^22.0.1",
     "@types/node": "^9.3.0",
+    "@types/prop-types": "^15.5.2",
     "@types/react": "^16.0.34",
     "@types/react-bootstrap": "^0.32.0",
-    "@types/react-dom": "^16.0.3"
+    "@types/react-dom": "^16.0.3",
+    "@types/react-fontawesome": "^1.6.1",
+    "@types/react-notification-system": "^0.2.35",
+    "@types/react-router": "^4.0.21",
+    "@types/reactstrap": "^5.0.12",
+    "@types/recompose": "^0.24.4"
   }
 }

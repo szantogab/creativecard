@@ -1,14 +1,14 @@
 import * as React from 'react';
 import './App.css';
 import SearchForm from './SearchForm';
-import { Table } from 'react-bootstrap';
 import { FilterRowState } from './FilterRow';
+import { Table } from 'reactstrap';
 
-class CardTypes extends React.Component<{}, {results: any[]}> {
+export default class CardTypes extends React.Component<{}, {results: any[]}> {
     constructor(props: {}, context: any) {
         super(props, context);
         this.state = {
-            results: []
+            results: [],
         };
     }
 
@@ -23,6 +23,7 @@ class CardTypes extends React.Component<{}, {results: any[]}> {
 
         return (
             <div>
+
                 <SearchForm fields={fields} onSubmit={this.search}/>
                 <Table responsive={true} hover={true} bordered={true}>
                     <thead>
@@ -57,4 +58,4 @@ class CardTypes extends React.Component<{}, {results: any[]}> {
     }
 }
 
-export default CardTypes;
+// export default mapPropsStream(_ => appState.map(state => state.login))(CardTypes);

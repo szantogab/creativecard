@@ -1,24 +1,19 @@
 import * as React from 'react';
 import './App.css';
-import CardTypes from './CardTypes';
-
-const logo = require('./logo.svg');
+// import {Route, Router, Switch} from 'react-router';
+import Login from './Login';
+import { DropDownHolder } from './common/DropdownHolder';
+import * as NotificationSystem from 'react-notification-system';
 
 class App extends React.Component {
-  render() {
-      return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-            <CardTypes/>
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <Login/>
+                <NotificationSystem ref={(ref: any) => DropDownHolder.setDropDown(ref)}/>
+            </div>
+        );
+    }
 }
 
 export default App;

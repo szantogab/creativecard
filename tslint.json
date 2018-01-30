@@ -34,7 +34,7 @@
         "no-arg": true,
         "no-bitwise": true,
         "no-console": [
-            true,
+            false,
             "log",
             "error",
             "debug",
@@ -90,7 +90,6 @@
             true,
             "check-branch",
             "check-decl",
-            "check-module",
             "check-operator",
             "check-separator",
             "check-type",

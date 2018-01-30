@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './App.css';
-import { Button, FormControl } from 'react-bootstrap';
+import { Button, Input } from 'reactstrap';
 
 export interface FilterRowState {
     selectedField: string;
@@ -12,21 +12,21 @@ class FilterRow extends React.Component<{ data: FilterRowState, fields: { id: st
     render() {
         return (
             <div>
-                <FormControl componentClass="select" placeholder="select" value={this.props.data.selectedField}>
+                <Input type="select" name="select" placeholder="select" value={this.props.data.selectedField}>
                     {
                         this.props.fields.map(field => <option key={field.id} value={field.id}>{field.name}</option>)
                     }
-                </FormControl>
+                </Input>
 
-                <FormControl componentClass="select" placeholder="select" onChange={this.onConditionSelected} value={this.props.data.condition}>
+                <Input type="select" name="select" placeholder="select" onChange={this.onConditionSelected} value={this.props.data.condition}>
                     <option value="contains">tartalmazza</option>
-                </FormControl>
+                </Input>
 
-                <FormControl type="text" placeholder="Megnevezés"
+                <Input type="text" placeholder="Megnevezés"
                              value={this.props.data.text}
                              onChange={(event) => this.props.onChange({...this.props.data, text: (event.target as any).value})}/>
 
-                <Button bsStyle="danger" onClick={() => this.props.onDeleteClick(this.props.data)}>Törlés</Button>
+                <Button color="danger" onClick={() => this.props.onDeleteClick(this.props.data)}>Törlés</Button>
             </div>
         );
     }

@@ -1,0 +1,28 @@
+$primary-color: black;
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import '../node_modules/loaders.css/src/animations/pacman.scss';
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100%;
+}
+
+div#root {
+  height: 100%;
+}
+
+.loader-hidden {
+  display: none;
+}
+
+.loader-active {
+  display: block;
+}
+
+.inline_loader_icon {
+  display: inline-block;
+  float: none;
+  margin: 20px 0;
+}
