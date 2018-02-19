@@ -13,7 +13,7 @@ export const login = gql`
 
     query login($email: String!, $password: String!) {
       userLogin(email: $email, password: $password){
-        user{
+        user {
           name
           email
         }

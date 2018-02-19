@@ -1,45 +1,42 @@
 import * as React from 'react';
-import Input from 'reactstrap/lib/Input';
-import Button from 'reactstrap/lib/Button';
-import { login } from './redux/UserStore';
-import { LceState } from './lce/LCE';
-import LoadContentError from './lce/LoadContentError';
-import { mapPropsStream } from 'recompose';
+import {LceState} from './lce/LCE';
+import {mapPropsStream} from 'recompose';
 import appState$, {AppState} from './redux';
-
-import Form from 'reactstrap/lib/Form';
-import FormGroup from 'reactstrap/lib/FormGroup';
-import Label from 'reactstrap/lib/Label';
 import Container from 'reactstrap/lib/Container';
 import Row from 'reactstrap/lib/Row';
 import Col from 'reactstrap/lib/Col';
+import LoadContentError from './lce/LoadContentError';
 import Card from 'reactstrap/lib/Card';
-import CardBody from 'reactstrap/lib/CardBody';
 import CardHeader from 'reactstrap/lib/CardHeader';
+import CardBody from 'reactstrap/lib/CardBody';
+import FormGroup from 'reactstrap/lib/FormGroup';
+import Input from 'reactstrap/lib/Input';
+import Label from 'reactstrap/lib/Label';
+import Form from 'reactstrap/lib/Form';
+import Button from 'reactstrap/lib/Button';
+import {login} from './redux/UserStore';
+import {withRouter} from 'react-router';
 
-type Props = { user?: LceState<any> };
+type Props = { user: LceState<any>, history: any };
 type State = { userName: string, password: string };
 
-export class Login extends React.Component<Props, State> {
-    constructor(props: Props) {
-        super(props);
+class Login extends React.Component<Props, State> {
+    constructor(props: Props, context: any) {
+        super(props, context);
         this.state = {
-            userName: '',
-            password: ''
+            userName: 'test@test.hu',
+            password: 'bubububu'
         };
+    }
+
+    componentWillReceiveProps( nextProps: Props ) {
+        if (!this.props.user.isSuccess() && nextProps.user.isSuccess()) {
+            this.props.history.push('/dashboard');
+        }
     }
 
     render() {
         return (
- /*           <Container>
-                <Row>
-                    <LoadContentError lce={this.props.user} showErrorInDropdown={true}>
-                        <Input type="text" value={this.state.userName} onChange={e => this.changeState('userName', e.target.value)}/>
-                        <Input type="password" value={this.state.password} onChange={e => this.changeState('password', e.target.value)}/>
-                        <Button onClick={() => login({userName: this.state.userName, password: this.state.password})} disabled={this.loginButtonDisabled()}>Bejelentkezés</Button>
-                    </LoadContentError>
-                </Row>
-            </Container>   */
         <Container>
             <Row>
                 <Col md={{ size: 8, offset: 2 }}>
@@ -76,4 +73,4 @@ export class Login extends React.Component<Props, State> {
     }
 }
 
-export default mapPropsStream<any, any>(props$ => appState$.map((state: AppState) => state.login) as any)(Login);
+export default mapPropsStream<any, any>(props$ => appState$.map((state: AppState) => state.login) as any)(withRouter(Login as any));

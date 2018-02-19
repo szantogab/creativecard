@@ -1,15 +1,14 @@
 import * as React from 'react';
 import './App.css';
-// import {Route, Router, Switch} from 'react-router';
-import Login from './Login';
-import { DropDownHolder } from './common/DropdownHolder';
+import {DropDownHolder} from './common/DropdownHolder';
 import * as NotificationSystem from 'react-notification-system';
+import Routes from './Routes';
 
 class App extends React.Component {
     render() {
         return (
             <div>
-                <Login/>
+                {Routes}
                 <NotificationSystem ref={(ref: any) => DropDownHolder.setDropDown(ref)}/>
             </div>
         );

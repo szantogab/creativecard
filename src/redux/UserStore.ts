@@ -26,14 +26,11 @@ appState('login').setInitialState({
     token: null,
     user: initialState(),
 }).reduce(login, (prevState: any, result: any) => {
-
-    result.mapWhenContent((content: any) => console.log(content));
-
-    /*return {
+    return {
         ...prevState,
-        user: result.mapWhenContent((content: any) => content.login.user),
-        token: result.mapOrNullWhenContent((content: any) => content.login.token)
-    };*/
+        user: result.mapWhenContent((content: any) => content.userLogin.user),
+        token: result.mapOrNullWhenContent((content: any) => content.userLogin.access_token)
+    };
 }).reduce(logOut, (prevState: any, result: any) => {
     return {
         ...prevState,

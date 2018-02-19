@@ -5,11 +5,14 @@ import rxjs4config from 'recompose/rxjs4ObservableConfig';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
+import {BrowserRouter} from 'react-router-dom';
 
 setObservableConfig(rxjs4config);
 
 ReactDOM.render(
-    <App/>,
+    <BrowserRouter>
+        <App/>
+    </BrowserRouter>,
     document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();
